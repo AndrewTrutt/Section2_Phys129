@@ -1,0 +1,11 @@
+b) From my plot, it seems all the methods scale somewhat linearly. This is believable considering what I know that some of these algorithms are order nlog(n) or order n*h. (h is number of points in final convex hull)
+
+Some methods are definitely faster than others, and this can be captured by a constant factor in front of the time complexity. However, this doesn't change the scaling behavior with increasing n.
+
+c) Now doing the same thing, but just changing the bounds of the point cloud. I predict that this shouldn't have an effect.
+
+I do predict that changing to a Gaussian distribution should matter. Essentially this means we likely need fewer points per n to create the hull.
+
+Both of these predictions turned out to be true.
+
+d) My histograms agree with my  results from earlier, with graham scan and monotone chain being much faster than jarvis march and quickhull. Jarvis march stands out among these histograms, it has a fairly spread out and even distribution of runtimes. I believe this is because Jarvis march has complexity O(nh), so it is very dependent on how many points end up being in the final hull. The other algorithms are essentially just taking the time average of a repeated process, so it makes sense it follows a distribution that looks more gaussian.
